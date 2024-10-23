@@ -38,6 +38,13 @@ npm run migrate
 
 npm run seeder
 
+## Setup some hidden folder
+
+create folder logs & uploads
+
+ /CareMonitor/logs
+ /CareMonitor/uploads
+
 ## Start server with PM2
 
 npm install pm2 -g
