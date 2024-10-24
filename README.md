@@ -45,6 +45,10 @@ create folder logs & uploads
  /CareMonitor/logs
  /CareMonitor/uploads
 
+ ## Import API Collection
+
+Via Import Json: /CareMonitor/api-docs/CareMonitor.postman_collection.json
+
 ## Start server with PM2
 
 npm install pm2 -g
