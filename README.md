@@ -6,9 +6,9 @@ above version 18
 
 tested on local with version v18.13.0
 
-## PostgreSQL version
+## MySql version
 
-tested on local with version PostgreSQL 17.0
+tested on local with version MySql 8.0
 
 ## Go to the project directory
 

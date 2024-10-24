@@ -106,51 +106,56 @@ exports.getHeartRateController = (req, res) => {
         userId: req.User !== undefined ? req.User.id : '',
         userName: req.User !== undefined ? req.User.username : '',
       })
-      let result = {
-        'HEART_RATE': {
-          "uom": "beats/min",
-          "data": response,
-          "WEIGHT": {
-            "uom": "Kg",
-            "name": "Weight"
-          },
-          "BLOOD_GLUCOSE_LEVELS": {
-            "uom": "mmol/L",
-            "name": "Blood Glucose"
-          },
-          "HEIGHT": {
-            "uom": "cm",
-            "name": "Height"
-          },
-          "BP": {
-            "uom": "mmHg",
-            "name": "Blood Pressure"
-          },
-          "STEPS": {
-            "uom": "",
-            "data": [
-              {
-                "on_date": "2020-10-05T13:00:00.000000Z",
-                "measurement": "11031"
-              },
-              {
-                "on_date": "2020-10-06T13:00:00.000000Z",
-                "measurement": "4667"
-              },
-              {
-                "on_date": "2020-10-07T13:00:00.000000Z",
-                "measurement": "13030"
-              },
-              {
-                "on_date": "2020-10-08T13:00:00.000000Z",
-                "measurement": "3048"
-              }
-            ],
-            "name": "Steps"
+      if (response.length == 0) {
+        ErrorResponse(res, "Records not found!")
+      } else {
+        let result = {
+          'HEART_RATE': {
+            "uom": "beats/min",
+            "data": response,
+            "WEIGHT": {
+              "uom": "Kg",
+              "name": "Weight"
+            },
+            "BLOOD_GLUCOSE_LEVELS": {
+              "uom": "mmol/L",
+              "name": "Blood Glucose"
+            },
+            "HEIGHT": {
+              "uom": "cm",
+              "name": "Height"
+            },
+            "BP": {
+              "uom": "mmHg",
+              "name": "Blood Pressure"
+            },
+            "STEPS": {
+              "uom": "",
+              "data": [
+                {
+                  "on_date": "2020-10-05T13:00:00.000000Z",
+                  "measurement": "11031"
+                },
+                {
+                  "on_date": "2020-10-06T13:00:00.000000Z",
+                  "measurement": "4667"
+                },
+                {
+                  "on_date": "2020-10-07T13:00:00.000000Z",
+                  "measurement": "13030"
+                },
+                {
+                  "on_date": "2020-10-08T13:00:00.000000Z",
+                  "measurement": "3048"
+                }
+              ],
+              "name": "Steps"
+            }
           }
         }
+        SuccessResponse(res, 'Successfully listed.', result)
       }
-      SuccessResponse(res, 'Successfully listed.', result)
+
     })
     .catch((err) => {
       const endTime = new Date().getTime()
