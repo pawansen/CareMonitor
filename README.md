@@ -34,10 +34,6 @@ npm run db:migrate
 
 npm run migrate
 
-2. Seeder database collection
-
-npm run seeder
-
 ## Setup some hidden folder
 
 create folder logs & uploads
